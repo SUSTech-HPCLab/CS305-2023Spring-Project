@@ -260,6 +260,24 @@ MN> net # 查看当前的网络拓扑结构
 MN> dpctl dump-flows # 展示所有交换机的流量表
 ```
 
+### 如何添加Forwarding Rule
+
+你可以阅读`ofctl_utils.py`的源码来了解更多细节。以下是一个简单的例子向你展示如何在switch中添加一个forwarding rule。
+```
+# Using function provided by ofctl_utils.py
+from ofctl_utils import OfCtl, VLANID_NONE
+
+def add_forwarding_rule(self, datapath, dl_dst, port):
+    ofctl = OfCtl.factory(datapath, self.logger)
+    actions = [datapath.ofproto_parser.OFPActionOutput(port)] 
+    
+    ofctl.set_flow(cookie=0, priority=0,
+        dl_type=ether_types.ETH_TYPE_IP,
+        dl_vlan=VLANID_NONE,
+        dl_dst=dl_dst,
+        actions=actions)
+```
+
 ### 有用的文档
 1. Ryu's API documentation https://ryu.readthedocs.io/en/latest/index.html
 2. Mininet's document https://github.com/mininet/mininet/wiki/Documentation
