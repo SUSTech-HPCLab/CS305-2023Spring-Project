@@ -62,11 +62,40 @@ If you see output similar to the following, it means that the Mininet environmen
 **Mininet must be executed as root. Be sure to use sudo or run it directly as root when using it.**
 
 #### Experiment Framework Installation
+Since Ubuntu's default Python version is too high, we need to install the Python 3.8 environment using miniconda.
+If you are an AMD64 Ubuntu user under windows, you can install miniconda directly using the following command.
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/software/miniconda3
+echo "export PATH=${HOME}/software/miniconda3/bin:\$PATH" >> ~/.bashrc
+source ~/.bashrc
+conda init bash
+source ~/.bashrc
+conda create -n cs305 python=3.8
+conda activate cs305
+python --version
+```
+
+If you are an ARM Ubuntu user under macos, you can install miniconda directly using the following command.
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+sh Miniconda3-latest-Linux-aarch64.sh -b -p ${HOME}/software/miniconda3
+echo "export PATH=${HOME}/software/miniconda3/bin:\$PATH" >> ~/.bashrc
+source ~/.bashrc
+conda init bash
+source ~/.bashrc
+conda create -n cs305 python=3.8
+conda activate cs305
+python --version
+```
+After installing the Python environment you need to install the experimental framework for this Project.
+
 The project repository is located at [CS305-2023Spring-Project](https://github.com/SUSTech-HPCLab/CS305-2023Spring-Project). You can download the source code by downloading the ZIP file or cloning the repository. After downloading the source code, install the Python package dependencies with the following command.
 ```
+conda activate cs305
 git clone https://github.com/SUSTech-HPCLab/CS305-2023Spring-Project.git
 cd CS305-2023Spring-Project
-sudo pip3 install -r requirements.txt
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
 
 
 # Check if Ryu is installed successfully
@@ -166,7 +195,7 @@ Open another terminal, and execute the following command:
 
 ```
 cd ./tests/dhcp_test/
-sudo python test_network.py
+sudo env "PATH=$PATH" python test_network.py # share the PATN env with sudo user
 ```
 
 We have set the default IP allocation to start from `192.168.1.2` in `dhcp.py`. You can check whether the two hosts have been assigned IP addresses by using command `h1 ifconfig` and `h2 ifconfig`.
@@ -210,7 +239,7 @@ ryu-manager --observe-links controller.py
 In another terminal, execute the following command:
 ```
 cd ./tests/switching_test/
-sudo python test_network.py
+sudo env "PATH=$PATH" python test_network.py # share the PATN env with sudo user
 ```
 After about two seconds, you will find that you have entered the mininet CLI in the second terminal.
 **You should enter the `pingall` command here to test the connectivity of your network.** **To facilitate checking on your code, please implement the function of displaying the shortest path in the controller.** The following figure shows an example of displaying the shortest path. After the `pingall` command, it displays the path and its length between any two hosts in the first terminal. Here, the distance is 3, which means that the path length from h1->s1->s3->h3 is 3 (3 edges).

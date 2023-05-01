@@ -58,14 +58,42 @@ sudo mn --test pingall
 **Mininet必须在root身份下执行。务必保证使用的时候使用了sudo或直接在root身份下运行**
 
 #### 安装实验框架
+由于Ubuntu默认的Python版本过高，因此我们需要使用miniconda安装Python3.8的环境。
+如果你是windows下的AMD 64Ubuntu用户，你可以直接使用以下指令安装miniconda。
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+sh Miniconda3-latest-Linux-x86_64.sh -b -p ${HOME}/software/miniconda3
+echo "export PATH=${HOME}/software/miniconda3/bin:\$PATH" >> ~/.bashrc
+source ~/.bashrc
+conda init bash
+source ~/.bashrc
+conda create -n cs305 python=3.8
+conda activate cs305
+python --version
+```
+
+如果你是macos下的ARM Ubuntu用户，你可以直接使用以下指令安装miniconda。
+```
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
+sh Miniconda3-latest-Linux-aarch64.sh -b -p ${HOME}/software/miniconda3
+echo "export PATH=${HOME}/software/miniconda3/bin:\$PATH" >> ~/.bashrc
+source ~/.bashrc
+conda init bash
+source ~/.bashrc
+conda create -n cs305 python=3.8
+conda activate cs305
+python --version
+```
+安装完Python环境后你需要安装本次Project的实验框架。
+
 本次Project仓库位于[CS305-2023Spring-Project](https://github.com/SUSTech-HPCLab/CS305-2023Spring-Project)。
 你可以下载Zip文件或者clone这个仓库。
 下载好源代码之后通过如下指令安装Python包依赖。
 ```
+conda activate cs305
 git clone https://github.com/SUSTech-HPCLab/CS305-2023Spring-Project.git
 cd CS305-2023Spring-Project
-sudo pip3 install -r requirements.txt
-
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple 
 
 # Check if Ryu is installed successfully
 ryu-manager --version
@@ -154,7 +182,7 @@ ryu-manager --observe-links controller.py
 新建另一个terminal，在新的terminal中执行如下命令
 ```
 cd ./tests/dhcp_test/
-sudo python test_network.py
+sudo env "PATH=$PATH" python test_network.py # share the PATN env with sudo user
 ```
 我们在dhcp.py文件的默认设置是从192.168.1.2开始分配IP。我们在执行test_network.py的terminal中输入`h1 ifconfig`和`h2 ifconfig`指令即可查看是否为这两台host分配好IP。只要出现了下图的内容，我们就认为基础的简易DHCP功能实现完成了。
 <p align="center">
@@ -193,7 +221,7 @@ ryu-manager --observe-links controller.py
 新建另一个terminal，在新的terminal中执行如下命令
 ```
 cd ./tests/switching_test/
-sudo python test_network.py
+sudo env "PATH=$PATH" python test_network.py 
 ```
 大约两秒之后，你会发现你在第二个terminal中进入了mininet cli。
 **你应该在这里输入`pingall` command来测试你的网络的连通性。** **为了方便助教检查你们的代码，请在controller中实现展示最短路径的功能**。下图是一个展示最短路径的例子。它在`pingall`指令之后在第一个terminal中展示出了任意两个host之间的路径及其长度。这里的distance为3，指的是h1->s1->s3->h3的路径长度为3(3条边)。
