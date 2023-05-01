@@ -31,7 +31,8 @@ Mininet needs to run in a Linux environment. We strongly recommend installing a 
 1. Install VMware or VirtualBox.
 2. Download the official Ubuntu image with mininet [mininet-2.3.0-210211-ubuntu-20.04.1](https://github.com/mininet/mininet/releases/download/2.3.0/mininet-2.3.0-210211-ubuntu-20.04.1-legacy-server-amd64-ovf.zip).
 3. After downloading the image, unzip and double-click on the ovf file to automatically call the VMware or other virtual machine software to create it.
-4. You can also refer to the installation of the virtual machine in this [guide](https://naiv.fun/Dev/41.html).
+4. login to the virtual machine with the username `mininet` and paasword `mininet`.
+5. You can also refer to the installation of the virtual machine in this [guide](https://naiv.fun/Dev/41.html).
 #### macOS ARM Users' Configuration Guide
 If you are using an M1 or other Apple chips, be sure to configure it as follows:
 
