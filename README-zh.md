@@ -215,7 +215,7 @@ sudo env "PATH=$PATH" python test_network.py # share the PATN env with sudo user
 在`test_network.py`中构建了一个三角网络。它首先会在网络中添加host, switch, link， 你需要利用OpenFlow协议监控这些事件，当这些事件发生时，你需要在控制器中进行相应的处理来实现最短路switching。当所有的组件（host,switch,link）初始化完毕后，我们在每一个host上执行`arping`命令。你需要识别这些`arping` packet并告知host如何确定目的地MAC。在这个测试中，你可以使用mininet cli中的指令`pingall`来检测网络的连通性。
 在这个网络中，h1到h2的最短路是h1->s1->s2->h2。h1到h3的最短路是h1->s1->s3->h3。任意两个host之间的数据传输所经过的switch数量应该不超过两个。
 
-在project的根目录中，首先在一个terminal中执行如下命令
+在project的目录中，首先在一个terminal中执行如下命令
 ```
 ryu-manager --observe-links controller.py 
 ```

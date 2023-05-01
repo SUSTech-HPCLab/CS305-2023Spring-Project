@@ -233,7 +233,7 @@ We provide a test network in `tests/switching_test/test_network.py`. Its network
 In `test_network.py`, a triangle network is constructed by adding hosts, switches, and links to the network. You need to monitor these events using the OpenFlow protocol and perform corresponding processing in the controller to achieve the shortest path switching. After all components (hosts, switches, links) are initialized, we execute the `arping` command on each host. You need to identify these `arping` packets and inform the hosts how to determine the destination MAC address. In this test, you can use the `pingall` command in the mininet CLI to test network connectivity.
 In this network, the shortest path from h1 to h2 is h1->s1->s2->h2, and the shortest path from h1 to h3 is h1->s1->s3->h3: the number of switches that data transmission between any two hosts passes through should not exceed two.
 
-In the project's root directory, first execute the following command in one terminal:
+In the project's directory, first execute the following command in one terminal:
 ```
 ryu-manager --observe-links controller.py 
 ```
