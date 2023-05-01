@@ -227,7 +227,7 @@ You will see the result in the following figure in the second terminal. This ind
 
 ## Grading and Submissions
 
-You will need to demonstrate your project on Week 15 or 16 during your lab section. After demonstrating your project, you are required to submit:
+You will need to demonstrate your project on Week 16 during your lab section. After demonstrating your project, you are required to submit:
 
 - `report.pdf` — Please clearly illustrate the architecture of your project and describe the implementation details of what you've done. Add screenshots or codes if needed. You need to provide a complex testcase to demonstrate the robustness of your program.
 - `src.zip` — A directory named src containing your source code.
@@ -251,7 +251,7 @@ You may implement some of the following features to get bonus points. We will de
 - Use Mininet to study more network features you have learned in the computer network course, such as TCP behaviors, TCP Reno versus TCP Tahoe, and [Bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) problem.
 - More that you can think of. Please discuss with the instructors first.
 
-Note that you need to provide a detailed explanation of what you do, how to test the extra functions, and what you discover in the report for the bonus points. You also need to think of a way to demonstrate your bonus functions during your Demo on Week 15 or 16.
+Note that you need to provide a detailed explanation of what you do, how to test the extra functions, and what you discover in the report for the bonus points. You also need to think of a way to demonstrate your bonus functions during your Demo on Week 16.
 
 ## Hints
 
