@@ -186,7 +186,7 @@ You need to distinguish the received DHCP packet type in the `handle_dhcp` funct
 
 #### Testing DHCP Functionality
 
-Assuming that you are in the root directory of the project, first execute the following command in a terminal:
+Assuming that you are in the directory of the project, first execute the following command in a terminal:
 
 ```
 ryu-manager --observe-links controller.py 

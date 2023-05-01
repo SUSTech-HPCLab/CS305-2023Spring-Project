@@ -176,7 +176,7 @@ DHCP: Dynamic Host Configuration Protocol,中文为动态主机设置协议。�
 #### 构建DHCP协议包
 你需要在`dhcp.py`文件中的`handle_dhcp`函数中分辨接收的DHCP数据包类型。根据传入的数据包类型决定发送DHCP OFFER packet还是DHCP ACK packet。在选择合法IP时，你需要结合`dhcp.py`文件中的`Config`类中规定的 `start_ip`，`end_ip`，`netmask`这三个属性。这三个属性的共同决定了子网的大小——你可以分配的IP的数量。详情可以查看dhcp.py文件中的注释。
 #### 测试DHCP功能
-假设在project的根目录中，首先在一个terminal中执行如下命令
+假设在project的目录中，首先在一个terminal中执行如下命令
 ```
 ryu-manager --observe-links controller.py 
 ```
