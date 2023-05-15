@@ -101,6 +101,8 @@ ryu-manager --version
 # If you see the version information of ryu-manager, the installation is successful.
 ```
 
+**你需要检查系统中是否安装了 `arping`。在你的ubuntu terminal中输入arping。如果command not found, 你需要输入`sudo apt-get install arping `来安装arping**
+
 ## 任务描述
 本次Project的基础部分包含两个部分:一个是简易的DHCP server。另一个是实现最短路switching算法。为了简化实验，我们对网络拓扑结构进行了如下的限制。
 - Mininet中只包含L2交换机和Host（主机）。这意味着我们的网络是一个大型局域子网。无需考虑多子网的情况。

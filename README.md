@@ -104,6 +104,9 @@ ryu-manager --version
 # If you see the version information of ryu-manager, the installation is successful.
 ```
 
+**You need to check if `arping` is installed in the VM. Enter `arping` in your Ubuntu terminal. If it shows "command not found," you need to enter `sudo apt-get install arping` to install arping.**
+
+
 ## Tasks
 The basic part of this project includes two parts: a simple DHCP server and implementation of the shortest path switching algorithm. To simplify the experiment, we have imposed the following restrictions on the network topology structure.
 - The Mininet only contains L2 switches and hosts. This means that our network is a large local subnet, and there is no need to consider multi-subnet scenarios.
