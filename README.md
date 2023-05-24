@@ -1,5 +1,7 @@
 # CS305-2023Spring-Project
 
+**UPDATES: Please read the project demo instruction at [Demo Insrtuction](https://github.com/SUSTech-HPCLab/CS305-2023Spring-Project/blob/main/project_demo_instructions.md).**
+
 **Please read this project specification carefully and keep track of the updates!!!** 
 
 **IMPORTANT NOTE**: We try our best to make this specification as clear as possible and cover all the problems we met during our testing. However, it is not uncommon that we could still miss important details in this specification. If there is anything unclear, you should submit issues in this repository or contact the instructors and SAs immediately, rather than guessing what you are required to do.
