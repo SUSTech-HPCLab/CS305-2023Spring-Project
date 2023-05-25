@@ -32,6 +32,7 @@ Please remember to submit your code to Sakai IMMEDIATELY after the demonstration
    - `MN > switch s1 stop/start` (Stop/Start switch s1)
    - `MN > link h1 s1 down/up` (Bring down/Bring up the link between host h1 and switch s1)
    - `MN > sh ovs-ofctl mod-port s1 1 down` (Disable port 1 on switch s1 using OpenFlow)
+2. `addHost` will not be tested at mininet cli. It will be triggered only at the initialization of the network topology. However, switch stop/start, link down/up and port on/off will be tested at mininet cli.
 
 2. When creating hosts using Python script, please follow the basic test case in Github to create hosts without IPs. like  `h1 = self.addHost('h1', ip='no ip defined/8')`
 
