@@ -12,7 +12,7 @@ Please remember to submit your code to Sakai IMMEDIATELY after the demonstration
 
 3. Change the `start_ip`, `end_ip`, and `subnet mask`, and create a topo with a switch and multiple hosts (using Python script). Assign new valid IP addresses correctly to all the hosts.
 
-4. Assume that the number of IP addresses between `start_ip` and `end_ip` is n. Create a topo with a switch and m hosts (using Python script), where m < n. In this case, the first m hosts are assigned valid IP addresses, and the remaining n-m hosts do not receive an IP address.
+4. Assume that the number of IP addresses between `start_ip` and `end_ip` is n. Create a topo with a switch and m hosts (using Python script), where m > n. In this case, the first n hosts are assigned valid IP addresses, and the remaining m-n hosts do not receive an IP address.
 
 ## Shortest path switching
 
