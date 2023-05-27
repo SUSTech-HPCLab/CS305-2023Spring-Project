@@ -21,6 +21,7 @@ Please remember to submit your code to Sakai IMMEDIATELY after the demonstration
    - After the topology is established, use `pingall` to verify connectivity between all hosts.
 
 2. Provide a complex test case
+   - **You should provide a figure to show the inital topology of your own case. The content of this figure should be the visualization of a graph. Hosts and switches are the nodes of the graph, and the links are the edges.**
    - The test case should have more than 6 hosts, more than 6 switches, and more than 10 edges.
    - The test case should support initializing the topology (from Python script, similar to the basic test case) and dynamically changing the topology using the Mininet CLI.
    - The changes should cover the following topology modification operations: `handle_switch_add`, `handle_switch_delete`, `handle_host_add`, `handle_link_add`, `handle_link_delete`, `handle_port_modify`.
